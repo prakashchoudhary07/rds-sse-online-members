@@ -90,6 +90,16 @@ app.get('/health-check', async (req, res) => {
   }
 });
 
+app.all('*', async(req,res)=>{
+  res.status(404).send({staus: 404, message: 'Route not found'});
+})
+
+app.use((error, request, response, next) => {
+  console.error( `error ${error.message}`) 
+  const status = error.status || 400
+  response.status(status).send(error.message)
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
