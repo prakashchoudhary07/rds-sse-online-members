@@ -9,7 +9,6 @@ import {
 } from './constants.js';
 
 const app = express();
-const port = process.env.PORT | LOCAL_PORT;
 
 app.use(express.json());
 
@@ -100,6 +99,9 @@ app.use((error, request, response, next) => {
   response.status(status).send(error.message)
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+const server_host = process.env.YOUR_HOST || '0.0.0.0';
+const server_port = process.env.PORT | LOCAL_PORT;
+
+app.listen(server_port, server_host, () => {
+  console.log(`Example app listening on port ${server_port}`);
 });
