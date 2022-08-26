@@ -15,17 +15,17 @@ app.use(express.json());
 app.use(cors(CORS_OPTIONS));
 
 
-app.get('/', async (req, res) => {
-  try {
-    res.status(200).send('Ok');
-  } catch (error) {
-    console.error(error);
-    res.status(500).send({
-      error: 'Internal server error',
-      message: 'Some this went wrong please contact admin',
-    });
-  }
-});
+// app.get('/', async (req, res) => {
+//   try {
+//     res.status(200).send('Ok');
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).send({
+//       error: 'Internal server error',
+//       message: 'Some this went wrong please contact admin',
+//     });
+//   }
+// });
 
 const users = {};
 
