@@ -1,31 +1,31 @@
-// import express from 'express';
-// import cors from 'cors';
-// import { getUserId, getRDSUserSelfDetails } from './utils.js';
-// import {
-//   CORS_OPTIONS,
-//   UPDATE_SSE_EVENTS_TIME,
-//   SSE_RESPONSE_HEADER,
-//   LOCAL_PORT,
-// } from './constants.js';
+import express from 'express';
+import cors from 'cors';
+import { getUserId, getRDSUserSelfDetails } from './utils.js';
+import {
+  CORS_OPTIONS,
+  UPDATE_SSE_EVENTS_TIME,
+  SSE_RESPONSE_HEADER,
+  LOCAL_PORT,
+} from './constants.js';
 
-// const app = express();
+const app = express();
 
-// app.use(express.json());
+app.use(express.json());
 
-// app.use(cors(CORS_OPTIONS));
+app.use(cors(CORS_OPTIONS));
 
 
-// app.get('/', async (req, res) => {
-//   try {
-//     res.status(200).send('Ok');
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).send({
-//       error: 'Internal server error',
-//       message: 'Some this went wrong please contact admin',
-//     });
-//   }
-// });
+app.get('/', async (req, res) => {
+  try {
+    res.status(200).send('Ok');
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({
+      error: 'Internal server error',
+      message: 'Some this went wrong please contact admin',
+    });
+  }
+});
 
 // const users = {};
 
@@ -102,32 +102,18 @@
 //   }
 // });
 
-// app.all('*', async(req,res)=>{
-//   res.status(404).send({staus: 404, message: 'Route not found'});
-// })
-
-// app.use((error, request, response, next) => {
-//   console.error( `error ${error.message}`) 
-//   const status = error.status || 400
-//   response.status(status).send(error.message)
-// })
-
-// const server_port = process.env.PORT | LOCAL_PORT;
-
-// app.listen(server_port, () => {
-//   console.log(`Example app listening on port ${server_port}`);
-// });
-
-
-
-import express from 'express';
-const app = express()
-const port = process.env.PORT || 5000
-
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+app.all('*', async(req,res)=>{
+  res.status(404).send({staus: 404, message: 'Route not found'});
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+app.use((error, request, response, next) => {
+  console.error( `error ${error.message}`) 
+  const status = error.status || 400
+  response.status(status).send(error.message)
 })
+
+const server_port = process.env.PORT | LOCAL_PORT;
+
+app.listen(server_port, () => {
+  console.log(`Example app listening on port ${server_port}`);
+});
