@@ -112,9 +112,8 @@ app.use((error, request, response, next) => {
   response.status(status).send(error.message)
 })
 
-const server_host = process.env.MY_HOST || '0.0.0.0';
 const server_port = process.env.PORT | LOCAL_PORT;
 
-app.listen(server_port, server_host, () => {
+app.listen(server_port, () => {
   console.log(`Example app listening on port ${server_port}`);
 });
