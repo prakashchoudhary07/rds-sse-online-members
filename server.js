@@ -1,12 +1,12 @@
 import express from 'express';
 // import cors from 'cors';
 // import { getUserId, getRDSUserSelfDetails } from './utils.js';
-// import {
-//   CORS_OPTIONS,
-//   UPDATE_SSE_EVENTS_TIME,
-//   SSE_RESPONSE_HEADER,
-//   LOCAL_PORT,
-// } from './constants.js';
+import {
+  CORS_OPTIONS,
+  UPDATE_SSE_EVENTS_TIME,
+  SSE_RESPONSE_HEADER,
+  LOCAL_PORT,
+} from './constants.js';
 
 const server_port = process.env.PORT | LOCAL_PORT;
 
