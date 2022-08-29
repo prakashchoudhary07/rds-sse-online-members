@@ -3,7 +3,7 @@ export const UPDATE_SSE_EVENTS_TIME = 5000;
 export const SSE_RESPONSE_HEADER = {
   Connection: 'keep-alive',
   'Content-Type': 'text/event-stream',
-  'Cache-Control': 'no-store',
+  'Cache-Control': 'no-store,max-age=0',
   'X-Accel-Buffering': 'no',
 };
 export const CORS_OPTIONS = {
