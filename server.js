@@ -1,12 +1,15 @@
 import express from 'express';
-import cors from 'cors';
-import { getUserId, getRDSUserSelfDetails } from './utils.js';
-import {
-  CORS_OPTIONS,
-  UPDATE_SSE_EVENTS_TIME,
-  SSE_RESPONSE_HEADER,
-  LOCAL_PORT,
-} from './constants.js';
+// import cors from 'cors';
+// import { getUserId, getRDSUserSelfDetails } from './utils.js';
+// import {
+//   CORS_OPTIONS,
+//   UPDATE_SSE_EVENTS_TIME,
+//   SSE_RESPONSE_HEADER,
+//   LOCAL_PORT,
+// } from './constants.js';
+
+const server_port = process.env.PORT | LOCAL_PORT;
+
 
 const app = express();
 
@@ -111,8 +114,6 @@ app.use((error, request, response, next) => {
   const status = error.status || 400
   response.status(status).send(error.message)
 })
-
-const server_port = process.env.PORT | LOCAL_PORT;
 
 app.listen(server_port, () => {
   console.log(`Example app listening on port ${server_port}`);
