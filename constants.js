@@ -4,6 +4,7 @@ export const SSE_RESPONSE_HEADER = {
   Connection: 'keep-alive',
   'Content-Type': 'text/event-stream',
   'Cache-Control': 'no-cache',
+  'X-Accel-Buffering': 'no',
 };
 export const CORS_OPTIONS = {
   origin: /(\.realdevsquad\.com$)|(localhost)/,
