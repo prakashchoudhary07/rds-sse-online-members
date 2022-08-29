@@ -10,9 +10,9 @@ import {
 
 const app = express();
 
-app.use(express.json());
+// app.use(express.json());
 
-app.use(cors(CORS_OPTIONS));
+// app.use(cors(CORS_OPTIONS));
 
 
 app.get('/', async (req, res) => {
